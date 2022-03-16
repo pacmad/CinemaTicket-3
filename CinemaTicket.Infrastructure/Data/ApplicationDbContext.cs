@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CinemaTicketWeb.Data
+namespace CinemaTicket.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

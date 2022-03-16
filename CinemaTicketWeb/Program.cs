@@ -1,4 +1,4 @@
-using CinemaTicketWeb.Data;
+using CinemaTicket.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

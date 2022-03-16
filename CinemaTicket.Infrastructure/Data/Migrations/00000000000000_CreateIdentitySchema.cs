@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace CinemaTicketWeb.Data.Migrations
+namespace CinemaTicket.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
