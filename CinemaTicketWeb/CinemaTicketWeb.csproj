@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CinemaTicket.Core\CinemaTicket.Core.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\CinemaTicket.Utility.csproj" />
   </ItemGroup>
 
 </Project>

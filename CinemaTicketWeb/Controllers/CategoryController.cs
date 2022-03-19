@@ -56,7 +56,7 @@ namespace CinemaTicketWeb.Controllers
                 return NotFound();
             }
 
-            var categoryFromDb =await _db.Categories.FindAsync(id);
+            var categoryFromDb = await _db.Categories.FirstOrDefaultAsync(u => u.Name == "id");
 
             if (categoryFromDb == null)
             {
@@ -94,7 +94,7 @@ namespace CinemaTicketWeb.Controllers
                 return NotFound();
             }
 
-            var categoryFromDb = await _db.Categories.FindAsync(id);
+            var categoryFromDb = await _db.Categories.FirstOrDefaultAsync(u => u.Name == "id");
 
             if (categoryFromDb == null)
             {

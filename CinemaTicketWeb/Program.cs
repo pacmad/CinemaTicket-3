@@ -1,4 +1,3 @@
-using CinemaTicket.Data;
 using CinemaTicket.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
