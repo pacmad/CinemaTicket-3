@@ -1,6 +1,7 @@
 ﻿using CinemaTicket.Infrastructure.Data;
 using CinemaTicket.Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTicketWeb.Controllers
 {
@@ -13,10 +14,9 @@ namespace CinemaTicketWeb.Controllers
             _db=db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Category> objCategoryList = _db.Categories;
-            return View(objCategoryList);
+            return View(await _db.Categories.ToListAsync());
         }
         //GET
         public IActionResult Create()
@@ -28,7 +28,7 @@ namespace CinemaTicketWeb.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public async Task<IActionResult> Create(Category obj)
         {
             if (obj.Name == obj.DisplayOrder.ToString())
             {
@@ -37,7 +37,7 @@ namespace CinemaTicketWeb.Controllers
             if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
                 TempData["success"] = "Category created successfully";
                 
 
@@ -49,14 +49,14 @@ namespace CinemaTicketWeb.Controllers
 
 
         //GET
-        public IActionResult Edit(string? id)
+        public async Task<IActionResult> Edit(string? id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
                 return NotFound();
             }
 
-            var categoryFromDb = _db.Categories.Find(id);
+            var categoryFromDb =await _db.Categories.FindAsync(id);
 
             if (categoryFromDb == null)
             {
@@ -68,7 +68,7 @@ namespace CinemaTicketWeb.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category obj)
+        public async Task<IActionResult> Edit(Category obj)
         {
             if (obj.Name == obj.DisplayOrder.ToString())
             {
@@ -77,7 +77,7 @@ namespace CinemaTicketWeb.Controllers
             if (ModelState.IsValid)
             {
                 _db.Categories.Update(obj);
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
                 TempData["success"] = "Category edited successfully";
 
                 return RedirectToAction("Index");
@@ -87,14 +87,14 @@ namespace CinemaTicketWeb.Controllers
         }
 
         //GET
-        public IActionResult Delete(string? id)
+        public async Task<IActionResult> Delete(string? id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
                 return NotFound();
             }
 
-            var categoryFromDb = _db.Categories.Find(id);
+            var categoryFromDb = await _db.Categories.FindAsync(id);
 
             if (categoryFromDb == null)
             {
@@ -106,9 +106,9 @@ namespace CinemaTicketWeb.Controllers
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost(string? id)
+        public async Task<IActionResult> DeletePost(string? id)
         {
-            var obj = _db.Categories.Find(id);
+            var obj = await _db.Categories.FindAsync(id);
 
             if (obj == null)
             {
@@ -116,7 +116,7 @@ namespace CinemaTicketWeb.Controllers
             }
 
                 _db.Categories.Remove(obj);
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
                 TempData["success"] = "Category deleted successfully";
 
                 return RedirectToAction("Index");
