@@ -1,5 +1,5 @@
 ﻿using CinemaTicket.Infrastructure.Data;
-using CinemaTicket.Infrastructure.Models;
+using CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

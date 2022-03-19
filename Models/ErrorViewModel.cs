@@ -1,4 +1,4 @@
-namespace CinemaTicketWeb.Models
+namespace CinemaTicket.Models
 {
     public class ErrorViewModel
     {

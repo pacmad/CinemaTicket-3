@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CinemaTicket.Infrastructure.Models
+namespace CinemaTicket.Models
 {
     public class Category
     {

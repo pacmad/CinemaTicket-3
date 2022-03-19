@@ -1,4 +1,4 @@
-﻿using CinemaTicket.Infrastructure.Models;
+﻿using CinemaTicket.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

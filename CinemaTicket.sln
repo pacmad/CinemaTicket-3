@@ -5,9 +5,13 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTicketWeb", "CinemaTicketWeb\CinemaTicketWeb.csproj", "{17E751B7-01EE-4604-B67A-ACE29E469FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicket.Core", "CinemaTicket.Core\CinemaTicket.Core.csproj", "{B9032E88-E8F0-424B-8450-5C09E56C6E91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTicket.Core", "CinemaTicket.Core\CinemaTicket.Core.csproj", "{B9032E88-E8F0-424B-8450-5C09E56C6E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicket.Infrastructure", "CinemaTicket.Infrastructure\CinemaTicket.Infrastructure.csproj", "{D0B0856F-FE7D-4688-96B7-B3B027A972D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTicket.Infrastructure", "CinemaTicket.Infrastructure\CinemaTicket.Infrastructure.csproj", "{D0B0856F-FE7D-4688-96B7-B3B027A972D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicket.Utility", "ClassLibrary1\CinemaTicket.Utility.csproj", "{64AEBF9C-AF9E-4192-A44D-59EA1209AE20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTicket.Models", "Models\CinemaTicket.Models.csproj", "{56AAFE91-1009-452F-B671-40AF5273A8E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{D0B0856F-FE7D-4688-96B7-B3B027A972D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B0856F-FE7D-4688-96B7-B3B027A972D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B0856F-FE7D-4688-96B7-B3B027A972D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64AEBF9C-AF9E-4192-A44D-59EA1209AE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64AEBF9C-AF9E-4192-A44D-59EA1209AE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64AEBF9C-AF9E-4192-A44D-59EA1209AE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64AEBF9C-AF9E-4192-A44D-59EA1209AE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56AAFE91-1009-452F-B671-40AF5273A8E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56AAFE91-1009-452F-B671-40AF5273A8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56AAFE91-1009-452F-B671-40AF5273A8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56AAFE91-1009-452F-B671-40AF5273A8E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
