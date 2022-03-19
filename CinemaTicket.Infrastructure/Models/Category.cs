@@ -9,11 +9,11 @@ namespace CinemaTicket.Infrastructure.Models
         [StringLength(36)]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         [Required]
-        [StringLength(100)]
+        [StringLength(100,MinimumLength = 1,ErrorMessage = "{0} must be between {1} and {2} characters!!")]
         public string Name { get; set; }
 
         [DisplayName("Display Order")]
-        [Range(1,100,ErrorMessage ="Display Order must be between 1 and 100 only!!")]
+        [Range(1,100,ErrorMessage ="{0} must be between {1} and {2} only!!")]
         public int DisplayOrder { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
     }
