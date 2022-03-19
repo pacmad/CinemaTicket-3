@@ -1,22 +1,21 @@
-﻿using CinemaTicket.Infrastructure.Data;
+﻿using CinemaTicket.Infrastructure.Data.Repositories;
 using CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTicketWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly IApplicationDbRepository _db;
 
-        public CategoryController(ApplicationDbContext db)
+        public CategoryController(IApplicationDbRepository db)
         {
             _db=db;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _db.Categories.ToListAsync());
+            return View( _db.All<Category>());
         }
         //GET
         public IActionResult Create()
@@ -36,7 +35,7 @@ namespace CinemaTicketWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
+               await _db.AddAsync(obj);
                await _db.SaveChangesAsync();
                 TempData["success"] = "Category created successfully";
                 
@@ -56,7 +55,7 @@ namespace CinemaTicketWeb.Controllers
                 return NotFound();
             }
 
-            var categoryFromDb = await _db.Categories.FirstOrDefaultAsync(u => u.Name == "id");
+            var categoryFromDb = await _db.GetByIdAsync<Category>(id);
 
             if (categoryFromDb == null)
             {
@@ -76,7 +75,7 @@ namespace CinemaTicketWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(obj);
+                _db.Update(obj);
                await _db.SaveChangesAsync();
                 TempData["success"] = "Category edited successfully";
 
@@ -94,34 +93,22 @@ namespace CinemaTicketWeb.Controllers
                 return NotFound();
             }
 
-            var categoryFromDb = await _db.Categories.FirstOrDefaultAsync(u => u.Name == "id");
+            var categoryFromDb = await _db.GetByIdAsync<Category>(id);
 
-            if (categoryFromDb == null)
-            {
-                return NotFound();
-            }
             return View(categoryFromDb);
         }
 
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeletePost(string? id)
+        public async Task<IActionResult> DeletePost(Category obj)
         {
-            var obj = await _db.Categories.FindAsync(id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-                _db.Categories.Remove(obj);
+           
+                 _db.Delete(obj);
                await _db.SaveChangesAsync();
                 TempData["success"] = "Category deleted successfully";
 
                 return RedirectToAction("Index");
-            
-         
         }
 
     }
